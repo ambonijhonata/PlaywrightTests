@@ -1,0 +1,5 @@
+node_modules/
+credentials/credentials.env
+api-tests/.features-gen/
+playwright-report/
+test-results/

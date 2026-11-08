@@ -1,0 +1,37 @@
+{
+  "name": "playwright-tests",
+  "private": true,
+  "scripts": {
+    "test:api": "bddgen && playwright test",
+    "test:api:generate": "bddgen",
+    "test:api:ui": "playwright test --ui",
+    "test:api:coverage": "node scripts/api-coverage.mjs",
+    "test:api:coverage:unit": "node --test scripts/api-coverage.test.mjs",
+    "lint": "eslint src scripts playwright.config.ts",
+    "typecheck": "tsc --noEmit",
+    "lint:gherkin": "gherkin-lint \"api-tests/**/*.feature\"",
+    "format:check": "prettier --check .",
+    "knip": "knip",
+    "dependencies:check": "depcruise --validate .dependency-cruiser.cjs src playwright.config.ts",
+    "quality": "npm run lint && npm run typecheck && npm run lint:gherkin && npm run format:check && npm run knip && npm run dependencies:check"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.1",
+    "@types/node": "^22.0.0",
+    "dependency-cruiser": "16.10.4",
+    "eslint": "9.39.1",
+    "eslint-plugin-playwright": "2.12.2",
+    "eslint-plugin-sonarjs": "4.2.2",
+    "gherkin-lint": "4.2.4",
+    "knip": "5.80.0",
+    "playwright-bdd": "8.5.1",
+    "prettier": "3.9.10",
+    "prettier-plugin-gherkin": "4.0.0",
+    "typescript": "^5.8.0",
+    "typescript-eslint": "8.40.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.0",
+    "jsonpath-plus": "^10.3.0"
+  }
+}
